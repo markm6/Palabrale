@@ -1,2 +1,2 @@
-public class CloseLetter {
+public class CloseLetter{
 }
