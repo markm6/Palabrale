@@ -26,7 +26,12 @@ public class BoardHelper {
     }
 
     public static boolean isBoardFull(Board board) {
-        return false;
+        for (int i = 0; i < 16; i++){
+            if (board.getLetters()[i][0] instanceof EmptyLetter){
+                return false;
+            }
+        }
+        return true;
     }
 
 

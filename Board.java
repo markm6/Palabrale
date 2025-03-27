@@ -6,5 +6,7 @@ public class Board {
         this.correctWord = correctWord;
     }
 
-
+    public Letter[][] getLetters() {
+        return letters;
+    }
 }
