@@ -20,7 +20,15 @@ public class BoardHelper {
     public static Letter[] evaluateGuess(String guess, String correctWord) {
         Letter[] letters = new Letter[6];
         for (int i = 0; i < letters.length; i++) {
-            // ..
+            String guessChr = guess.substring(i, i+1);
+            String wordChr = correctWord.substring(i, i+1);
+            if (guessChr.equals(wordChr)) {
+                letters[i] = new CorrectLetter(guessChr);
+            } else if (correctWord.contains(guessChr)) {
+                letters[i] = new CloseLetter(guessChr);
+            } else {
+                letters[i] = new WrongLetter(guessChr);
+            }
         }
         return letters;
     }
