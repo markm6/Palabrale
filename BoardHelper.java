@@ -40,7 +40,7 @@ public class BoardHelper {
      * guessed word.
      * @return
      */
-    public static boolean boardComplete(Board board, String correctWord) {
+    public static boolean boardComplete(Board board) {
         for (int i = 15; i > -1; i--){
             if (board.getLetters()[i][0] instanceof EmptyLetter){
             } else {
