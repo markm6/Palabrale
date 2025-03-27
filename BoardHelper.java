@@ -49,6 +49,16 @@ public class BoardHelper {
      * @return
      */
     public static boolean boardComplete(Board board) {
-        return false; // stub
+        for (int i = 15; i > -1; i--){
+            if (board.getLetters()[i][0] instanceof EmptyLetter){
+            } else {
+                for (int j = 0; j < 6; j++){
+                    if (!(board.getLetters()[i][j] instanceof CorrectLetter)){
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
     }
 }
