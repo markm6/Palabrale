@@ -21,7 +21,6 @@ public class Game {
     private String promptForGuess() {
         return "";
     }
-    // TODO: finish isGameOver, checks if the game is over (if guesses limit has been reached or game is won)
     private boolean isGameOver() {
         if (guesses >= 16 || BoardHelper.isBoardFull(board1) || BoardHelper.boardComplete(board1) || BoardHelper.boardComplete(board2)){
             return true;
