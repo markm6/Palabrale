@@ -8,7 +8,13 @@ public class BoardHelper {
         // stub
         Letter[][] letters = new Letter[16][6];
         String correctWord = "";
+        for (int i = 0; i < letters.length; i++) {
+            for (int j = 0; j < letters[0].length; j++) {
+                letters[i][j]= new EmptyLetter();
+            }
+        }
         return new Board(letters, correctWord);
+
     }
 
     /**

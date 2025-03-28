@@ -42,7 +42,9 @@ public class Game {
         System.out.println("Result: ");
     }
     public void start() {
+
         System.out.println("Welcome to Palabrale!");
+
     }
 
     public Board getBoard1() {
