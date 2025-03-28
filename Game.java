@@ -33,9 +33,12 @@ public class Game {
         BoardHelper.printBoard(board2);
     }
     private void playGame() {
-        while (!isGameOver()) {
+        //board1 = BoardHelper.createEmptyBoard();
+        //board2 = BoardHelper.createEmptyBoard();
+        while (isGameOver()) {
             printBoards();
-            System.out.println("What is your guess?");
+            System.out.println();
+            System.out.println(Colors.WHITE + "What is your guess?" + Colors.RESET);
             String guess = promptForGuess();
             board1.useGuess(guess);
             board2.useGuess(guess);
@@ -48,7 +51,7 @@ public class Game {
         System.out.println("Welcome to Palabrale!" + "\nLike Wordle but " + Colors.YELLOW + "BETTER" + Colors.RESET);
         System.out.println("Little twist. " + Colors.CYAN + "6 letter word, two boards, and both boards use the same word you input." + Colors.RESET);
         System.out.println(Colors.RED + "3... 2... 1" + Colors.RESET);
-        printBoards();
+        playGame();
     }
 
     public Board getBoard1() {

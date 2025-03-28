@@ -13,7 +13,4 @@ public class Letter {
         return color + c + Colors.RESET;
     }
 
-
-
-
 }

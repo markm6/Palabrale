@@ -77,7 +77,7 @@ public class BoardHelper {
         Letter[][] letray = board.getLetters();
         for (int r = 0; r <= 8; r++) {
             System.out.println();
-            for (int c = 0; c <= 6; c++) {
+            for (int c = 0; c < 6; c++) {
                 System.out.print(letray[r][c] + " ");
             }
         }
