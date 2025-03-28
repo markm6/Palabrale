@@ -27,5 +27,8 @@ public class Board {
         int row = getFirstEmptyRow();
         BoardHelper.evaluateGuess(letters[row], guess, correctWord);
     }
-    
+
+    public String getCorrectWord() {
+        return correctWord;
+    }
 }
