@@ -62,4 +62,11 @@ public class BoardHelper {
         }
         return true;
     }
+
+    /**
+     * Prints a board
+     */
+    public static void printBoard(Board board) {
+        // stub
+    }
 }
