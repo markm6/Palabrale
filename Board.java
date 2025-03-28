@@ -15,7 +15,7 @@ public class Board {
      * @return First empty row index in the letters array.
      */
     public int getFirstEmptyRow() {
-        for (int i = 0; i < letters.length; i--){
+        for (int i = 0; i < letters.length; i++){
             if (letters[i][0] instanceof EmptyLetter) {
                 return i;
             }
