@@ -17,8 +17,7 @@ public class BoardHelper {
      * @param correctWord Correct word
      * @return Full row of letters
      */
-    public static Letter[] evaluateGuess(String guess, String correctWord) {
-        Letter[] letters = new Letter[6];
+    public static Letter[] evaluateGuess(Letter[] letters, String guess, String correctWord) {
         for (int i = 0; i < letters.length; i++) {
             String guessChr = guess.substring(i, i+1);
             String wordChr = correctWord.substring(i, i+1);
@@ -46,7 +45,8 @@ public class BoardHelper {
     /**
      * Checks if a board has successfully been completed with a correct
      * guessed word.
-     * @return
+     * @return True if a board has successfully been completed with a correct
+     * guessed word, else false
      */
     public static boolean boardComplete(Board board) {
         for (int i = 15; i > -1; i--){
@@ -69,4 +69,5 @@ public class BoardHelper {
     public static void printBoard(Board board) {
         // stub
     }
+
 }
