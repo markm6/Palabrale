@@ -23,6 +23,9 @@ public class Game {
     }
     // TODO: finish isGameOver, checks if the game is over (if guesses limit has been reached or game is won)
     private boolean isGameOver() {
+        if (guesses >= 16 || BoardHelper.isBoardFull(board1) || BoardHelper.boardComplete(board1) || BoardHelper.boardComplete(board2)){
+            return true;
+        }
         return false;
     }
     private void printBoards() {
@@ -42,7 +45,10 @@ public class Game {
         System.out.println("Result: ");
     }
     public void start() {
-        System.out.println("Welcome to Palabrale!");
+        System.out.println("Welcome to Palabrale!" + "\nLike Wordle but " + Colors.YELLOW + "BETTER" + Colors.RESET);
+        System.out.println("Little twist. " + Colors.CYAN + "6 letter word, two boards, and both boards use the same word you input." + Colors.RESET);
+        System.out.println(Colors.RED + "3... 2... 1" + Colors.RESET);
+        printBoards();
     }
 
     public Board getBoard1() {
