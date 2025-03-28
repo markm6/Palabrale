@@ -8,7 +8,13 @@ public class BoardHelper {
         // stub
         Letter[][] letters = new Letter[16][6];
         String correctWord = "";
+        for (int i = 0; i < letters.length; i++) {
+            for (int j = 0; j < letters[0].length; j++) {
+                letters[i][j]= new EmptyLetter();
+            }
+        }
         return new Board(letters, correctWord);
+
     }
 
     /**
@@ -71,16 +77,7 @@ public class BoardHelper {
         Letter[][] letray = board.getLetters();
         for (int r = 0; r <= 8; r++) {
             System.out.println();
-            for (int c = 0; c < 6; c++) {
-                System.out.print(letray[r][c] + " ");
-            }
-        }
-
-        System.out.println("-----------------------------");
-
-        for (int r = 0; r <= 8; r++) {
-            System.out.println();
-            for (int c = 0; c < 6; c++) {
+            for (int c = 0; c <= 6; c++) {
                 System.out.print(letray[r][c] + " ");
             }
         }
