@@ -1,5 +1,5 @@
 public class CloseLetter extends Letter {
     public CloseLetter(String chr) {
-        super(chr, Colors.RED);
+        super(chr, Colors.RESET);
     }
 }
