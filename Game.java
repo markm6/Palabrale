@@ -19,10 +19,12 @@ public class Game {
 
     // TODO: finish promptForGuess, should include validation of the word and convert to uppercase
     private String promptForGuess() {
-        return "";
+        String thing = scanner.nextLine();
+        thing.toUpperCase();
+        return thing;
     }
     private boolean isGameOver() {
-        if (guesses >= 16 || BoardHelper.isBoardFull(board1) || BoardHelper.boardComplete(board1) || BoardHelper.boardComplete(board2)){
+        if (guesses >= 16 || BoardHelper.isBoardFull(board1) || (BoardHelper.boardComplete(board1) && BoardHelper.boardComplete(board2))){
             return true;
         }
         return false;
