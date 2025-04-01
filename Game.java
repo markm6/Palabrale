@@ -17,12 +17,15 @@ public class Game {
         guesses = 0;
     }
 
-
-
     // TODO: finish promptForGuess, should include validation of the word and convert to uppercase
     private String promptForGuess() {
-        String guess = "";
-        while (guess.length() != 6)
+        String thing = "";
+        while (thing.length() != 6) {
+            thing = scanner.nextLine();
+            thing = thing.toUpperCase();
+        }
+        return thing;
+
     }
     private boolean isGameOver() {
         if (guesses >= 16 || BoardHelper.isBoardFull(board1) || BoardHelper.boardComplete(board1) || BoardHelper.boardComplete(board2)){
@@ -35,6 +38,8 @@ public class Game {
         BoardHelper.printBoard(board2);
     }
     private void playGame() {
+        //board1 = BoardHelper.createEmptyBoard();
+        //board2 = BoardHelper.createEmptyBoard();
         while (isGameOver()) {
             printBoards();
             System.out.println();
