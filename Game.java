@@ -34,8 +34,7 @@ public class Game {
         return false;
     }
     private void printBoards() {
-        BoardHelper.printBoard(board1);
-        BoardHelper.printBoard(board2);
+        BoardHelper.printTwoBoards(board1, board2);
     }
     private void playGame() {
         //board1 = BoardHelper.createEmptyBoard();

@@ -85,4 +85,22 @@ public class BoardHelper {
         }
     }
 
+    public static void printBoardRow(Letter[][] boardLetters, int i) {
+        for (int j = 0; j < boardLetters[i].length; j++) {
+            System.out.print(boardLetters[i][j] + " ");
+        }
+    }
+
+    public static void printTwoBoards(Board b1, Board b2) {
+        Letter[][] letters1 = b1.getLetters();
+        Letter[][] letters2 = b2.getLetters();
+        for (int i = 0; i < 16; i++) {
+            printBoardRow(letters1, i);
+            System.out.print("| ");
+            printBoardRow(letters2, i);
+            System.out.println();
+        }
+    }
+
+
 }
