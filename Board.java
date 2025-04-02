@@ -1,9 +1,11 @@
 public class Board {
     private Letter[][] letters;
     private String correctWord;
-    public Board(Letter[][] letters, String correctWord) {
+    private boolean solved;
+    public Board(Letter[][] letters) {
         this.letters = letters;
-        this.correctWord = correctWord;
+        this.correctWord = WordHelper.randomWord();
+        System.out.println(this.correctWord);
     }
 
     public Letter[][] getLetters() {
@@ -24,8 +26,15 @@ public class Board {
     }
 
     public void useGuess(String guess) {
+        // TODO: if solved is true do not use the guess/do not fill board with additional guesses
         int row = getFirstEmptyRow();
         BoardHelper.evaluateGuess(letters[row], guess, correctWord);
+
+        // TODO: update solved instance variable to true
+        // IF the row is completely solved
+        for (int i = 0; i < 6; i++) {
+            // ..
+        }
     }
 
     public String getCorrectWord() {

@@ -1,4 +1,5 @@
-import java.io.File;
+import java.util.Arrays;
+
 public class BoardHelper {
     /**
      * Creates an empty 2d Letter array and picks a random word
@@ -7,34 +8,33 @@ public class BoardHelper {
      */
     public static Board createEmptyBoard() {
         Letter[][] letters = new Letter[16][6];
-        String correctWord = "";
         for (int i = 0; i < letters.length; i++) {
             for (int j = 0; j < letters[0].length; j++) {
                 letters[i][j]= new EmptyLetter();
             }
         }
-        return new Board(letters, correctWord);
+        return new Board(letters);
     }
 
     /**
      * Fills a row of letters with either correct, close or wrong letters
-     * @param guess Guessed word
+     *
+     * @param guess       Guessed word
      * @param correctWord Correct word
-     * @return Full row of letters
      */
-    public static Letter[] evaluateGuess(Letter[] letters, String guess, String correctWord) {
+    public static void evaluateGuess(Letter[] letters, String guess, String correctWord) {
         for (int i = 0; i < letters.length; i++) {
-            String guessChr = guess.substring(i, i+1);
-            String wordChr = correctWord.substring(i, i+1);
+            String guessChr = guess.substring(i, i+1).toUpperCase();
+            String wordChr = correctWord.substring(i, i+1).toUpperCase();
+
             if (guessChr.equals(wordChr)) {
                 letters[i] = new CorrectLetter(guessChr);
-            } else if (correctWord.contains(guessChr)) {
+            } else if (correctWord.toUpperCase().contains(guessChr)) {
                 letters[i] = new CloseLetter(guessChr);
             } else {
                 letters[i] = new WrongLetter(guessChr);
             }
         }
-        return letters;
     }
 
     public static boolean isBoardFull(Board board) {
@@ -55,6 +55,7 @@ public class BoardHelper {
      */
     public static boolean boardComplete(Board board) {
         for (int i = 15; i > -1; i--){
+            System.out.println(Arrays.toString(board.getLetters()[i]));
             if (board.getLetters()[i][0] instanceof EmptyLetter){
 
             } else {
@@ -63,9 +64,10 @@ public class BoardHelper {
                         return false;
                     }
                 }
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     /**

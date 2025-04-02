@@ -9,7 +9,7 @@ public class WordHelper {
     private static WordHelper instance = new WordHelper();
     private WordHelper() {
         WORDS = new ArrayList<>();
-        WORD_FILE = new File("/words.txt");
+        WORD_FILE = new File("./words.txt");
         try {
             Scanner scanner = new Scanner(WORD_FILE);
             while (scanner.hasNextLine()) {
@@ -25,7 +25,8 @@ public class WordHelper {
     }
 
     public static String randomWord() {
-        return WORDS.get((int)(Math.random()*100)); // stub
+        System.out.println(WORDS);
+        return WORDS.get((int)(Math.random()*100));
     }
 
 }

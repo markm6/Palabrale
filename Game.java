@@ -39,11 +39,16 @@ public class Game {
     private void playGame() {
         //board1 = BoardHelper.createEmptyBoard();
         //board2 = BoardHelper.createEmptyBoard();
-        while (isGameOver()) {
+        System.out.println(isGameOver());
+        System.out.println( BoardHelper.isBoardFull(board1) );
+        System.out.println( BoardHelper.boardComplete(board1));
+        System.out.println(BoardHelper.boardComplete(board2));
+        while (!isGameOver()) {
             printBoards();
             System.out.println();
             System.out.println(Colors.WHITE + "What is your guess?" + Colors.RESET);
             String guess = promptForGuess();
+            System.out.println(guess);
             board1.useGuess(guess);
             board2.useGuess(guess);
             guesses++;
