@@ -5,7 +5,6 @@ public class Board {
     public Board(Letter[][] letters) {
         this.letters = letters;
         this.correctWord = WordHelper.randomWord();
-        System.out.println(this.correctWord);
     }
 
     public Letter[][] getLetters() {

@@ -55,7 +55,6 @@ public class BoardHelper {
      */
     public static boolean boardComplete(Board board) {
         for (int i = 15; i > -1; i--){
-            System.out.println(Arrays.toString(board.getLetters()[i]));
             if (board.getLetters()[i][0] instanceof EmptyLetter){
 
             } else {

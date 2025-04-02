@@ -25,7 +25,6 @@ public class WordHelper {
     }
 
     public static String randomWord() {
-        System.out.println(WORDS);
         return WORDS.get((int)(Math.random()*100));
     }
 
