@@ -1,5 +1,4 @@
 import java.io.File;
-
 public class BoardHelper {
     /**
      * Creates an empty 2d Letter array and picks a random word
@@ -7,7 +6,6 @@ public class BoardHelper {
      * @return Board with all empty letters
      */
     public static Board createEmptyBoard() {
-        // stub
         Letter[][] letters = new Letter[16][6];
         String correctWord = "";
         for (int i = 0; i < letters.length; i++) {
@@ -16,7 +14,6 @@ public class BoardHelper {
             }
         }
         return new Board(letters, correctWord);
-
     }
 
     /**
