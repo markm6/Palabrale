@@ -5,6 +5,7 @@ public class Board {
     public Board(Letter[][] letters) {
         this.letters = letters;
         this.correctWord = WordHelper.randomWord();
+        solved=false;
     }
 
     public Letter[][] getLetters() {
@@ -31,8 +32,14 @@ public class Board {
 
         // TODO: update solved instance variable to true
         // IF the row is completely solved
+        int count= 0;
         for (int i = 0; i < 6; i++) {
-            // ..
+            if(letters[row][i] instanceof CorrectLetter){
+                count++;
+            }
+        }
+        if(count==6){
+            solved=true;
         }
     }
 
