@@ -25,7 +25,7 @@ public class WordHelper {
     }
 
     public static String randomWord() {
-        return ""; // stub
+        return WORDS.get((int)(Math.random()*100)); // stub
     }
 
 }
