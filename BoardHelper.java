@@ -1,3 +1,5 @@
+import java.io.File;
+
 public class BoardHelper {
     /**
      * Creates an empty 2d Letter array and picks a random word
