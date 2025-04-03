@@ -28,7 +28,7 @@ public class Game {
 
     }
     private boolean isGameOver() {
-        if (guesses >= 16 || BoardHelper.isBoardFull(board1) || BoardHelper.boardComplete(board1) || BoardHelper.boardComplete(board2)){
+        if (guesses >= 16 || BoardHelper.isBoardFull(board1) || BoardHelper.isBoardFull(board2) || (BoardHelper.boardComplete(board1) && BoardHelper.boardComplete(board2))){
             return true;
         }
         return false;
