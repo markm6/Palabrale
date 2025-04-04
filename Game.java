@@ -70,13 +70,13 @@ public class Game {
             }
         }
         // TODO: get result
-        System.out.print("Result: ");
-        if (BoardHelper.boardComplete(board1) && BoardHelper.boardComplete(board2)){
-            System.out.println("You woonn!11 🥳🥳");
-        } else {
-            System.out.println("You lost.. ;(");
-            System.out.println("The words were " + board1.getCorrectWord() + " and " + board2.getCorrectWord());
-        }
+            System.out.print("Result: ");
+            if (BoardHelper.boardComplete(board1) && BoardHelper.boardComplete(board2)){
+                System.out.println("You woonn!11 🥳🥳");
+            } else {
+                System.out.println("You lost.. ;(");
+                System.out.println("The words were " + board1.getCorrectWord() + " and " + board2.getCorrectWord());
+            }
     }
 
     public boolean done (String guess){
