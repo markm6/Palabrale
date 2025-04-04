@@ -69,7 +69,13 @@ public class Game {
             guesses++;
         }
         // TODO: get result
-        System.out.println("Result: ");
+        System.out.print("Result: ");
+        if (BoardHelper.boardComplete(board1) && BoardHelper.boardComplete(board2)){
+            System.out.println("You woonn!11 🥳🥳");
+        } else {
+            System.out.println("You lost.. ;(");
+            System.out.println("The words were " + board1.getCorrectWord() + " and " + board2.getCorrectWord());
+        }
     }
 
     public boolean done (String guess){
@@ -80,6 +86,12 @@ public class Game {
         }
         return true;
     }
+
+    //public boolean numbers (String guess){
+    //    for (int i = 0; i < 6; i++){
+    //        if (guess.isDig)
+    //    }
+    //}
 
     public void start() {
         System.out.println("Welcome to Palabrale!" + "\nLike Wordle but " + Colors.YELLOW + "BETTER" + Colors.RESET);

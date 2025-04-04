@@ -10,5 +10,6 @@ public class Main {
             g = new Game();
             g.start();
         }
+        System.out.println("Bye bye");
     }
 }
