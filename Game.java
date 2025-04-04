@@ -61,7 +61,6 @@ public class Game {
                     guess = promptForGuess();
                 }
             }
-
             System.out.println(guess);
             if(GuessHelper.getInstance().isValidWord(guess.toLowerCase())) {
                 board1.useGuess(guess);
@@ -90,29 +89,25 @@ public class Game {
         return true;
     }
 
-    //public boolean numbers (String guess){
-    //    for (int i = 0; i < 6; i++){
-    //        if (guess.isDig)
-    //    }
-    //}
 
     public void start() {
         System.out.println("Welcome to Palabrale!" + "\nLike Wordle but " + Colors.YELLOW + "BETTER" + Colors.RESET);
         System.out.println("Little twist. " + Colors.CYAN + "6 letter word, two boards, and both boards use the same word you input." + Colors.RESET);
         System.out.println(Colors.RED + "3... 2... 1" + Colors.RESET);
         playGame();
-        //System.out.println("Want to play again? (y/n");
-        //String answer = scanner.nextLine();
-        //while (!answer.equals("n")){
-        //    playGame();
-        //    System.out.println("Want to play again? (y/n): ");
-        //    answer = scanner.nextLine();
-        //}
+        System.out.println("Want to play again? (y/n)");
+        String answer = scanner.nextLine();
+        while (!answer.equals("n")){
+            if (answer.equals("n")){
+                break;
+            }
+            Game thing = new Game();
+            thing.start();
+            System.out.println("Want to play again? (y/n): ");
+            answer = scanner.nextLine();
+        }
+        System.out.println("Bye bye");
     }
-
-
-
-
 
     public Board getBoard1() {
         return board1;
