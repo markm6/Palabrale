@@ -67,6 +67,8 @@ public class Game {
                 board1.useGuess(guess);
                 board2.useGuess(guess);
                 guesses++;
+            } else {
+                System.out.println("Incorrect input! Put in a REAL 6 letter word.");
             }
         }
         // TODO: get result
