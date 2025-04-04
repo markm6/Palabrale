@@ -40,10 +40,10 @@ public class Game {
     private void playGame() {
         //board1 = BoardHelper.createEmptyBoard();
         //board2 = BoardHelper.createEmptyBoard();
-        System.out.println(isGameOver());
-        System.out.println( BoardHelper.isBoardFull(board1) );
-        System.out.println( BoardHelper.boardComplete(board1));
-        System.out.println(BoardHelper.boardComplete(board2));
+        //System.out.println(isGameOver());
+        //System.out.println( BoardHelper.isBoardFull(board1) );
+        //System.out.println( BoardHelper.boardComplete(board1));
+        //System.out.println(BoardHelper.boardComplete(board2));
         while (!isGameOver()) {
             printBoards();
             System.out.println();
