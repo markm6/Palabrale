@@ -63,9 +63,13 @@ public class Game {
             }
 
             System.out.println(guess);
+            if(GuessHelper.getInstance().isValidWord(guess.toLowerCase())) {
                 board1.useGuess(guess);
                 board2.useGuess(guess);
                 guesses++;
+            } else {
+                System.out.println("Incorrect input! Put in a REAL 6 letter word.");
+            }
         }
         // TODO: get result
             System.out.print("Result: ");
