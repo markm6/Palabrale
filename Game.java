@@ -1,3 +1,4 @@
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Game {
@@ -61,6 +62,13 @@ public class Game {
         System.out.println("Little twist. " + Colors.CYAN + "6 letter word, two boards, and both boards use the same word you input." + Colors.RESET);
         System.out.println(Colors.RED + "3... 2... 1" + Colors.RESET);
         playGame();
+        //System.out.println("Want to play again? (y/n");
+        //String answer = scanner.nextLine();
+        //while (!answer.equals("n")){
+        //    playGame();
+        //    System.out.println("Want to play again? (y/n): ");
+        //    answer = scanner.nextLine();
+        //}
     }
 
     public Board getBoard1() {
