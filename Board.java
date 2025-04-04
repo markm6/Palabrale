@@ -27,20 +27,21 @@ public class Board {
 
     public void useGuess(String guess) {
         // TODO: if solved is true do not use the guess/do not fill board with additional guesses
-        int row = getFirstEmptyRow();
-        BoardHelper.evaluateGuess(letters[row], guess, correctWord);
-
-        // TODO: update solved instance variable to true
-        // IF the row is completely solved
-        int count= 0;
-        for (int i = 0; i < 6; i++) {
-            if(letters[row][i] instanceof CorrectLetter){
-                count++;
-            }
-        }
-        if(count==6){
-            solved=true;
-        }
+       if(!solved) {
+           int row = getFirstEmptyRow();
+           BoardHelper.evaluateGuess(letters[row], guess, correctWord);
+           // TODO: update solved instance variable to true
+           // IF the row is completely solved
+           int count = 0;
+           for (int i = 0; i < 6; i++) {
+               if (letters[row][i] instanceof CorrectLetter) {
+                   count++;
+               }
+           }
+           if (count == 6) {
+               solved = true;
+           }
+       }
     }
 
     public String getCorrectWord() {
