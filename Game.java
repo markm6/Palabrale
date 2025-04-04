@@ -22,6 +22,7 @@ public class Game {
         String thing = "";
         while (thing.length() != 6) {
             thing = scanner.nextLine();
+            thing= thing.replace(" ", "");
             thing = thing.toUpperCase();
         }
         return thing;
