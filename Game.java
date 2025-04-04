@@ -50,6 +50,19 @@ public class Game {
             System.out.println();
             System.out.println(Colors.WHITE + "What is your guess?" + Colors.RESET);
             String guess = promptForGuess();
+            while (!done(guess)) {
+                if (done(guess)) {
+                    System.out.println(guess);
+                    board1.useGuess(guess);
+                    board2.useGuess(guess);
+                    guesses++;
+                } else {
+                    System.out.println("Incorrect input!" + "\nTry again");
+                    System.out.println(Colors.WHITE + "What is your guess?" + Colors.RESET);
+                    guess = promptForGuess();
+                }
+            }
+
             System.out.println(guess);
             board1.useGuess(guess);
             board2.useGuess(guess);
@@ -58,6 +71,16 @@ public class Game {
         // TODO: get result
         System.out.println("Result: ");
     }
+
+    public boolean done (String guess){
+        for (int i = 0; i < 5; i++){
+            if (guess.substring(i, i+1).equals(" ")){
+                return false;
+            }
+        }
+        return true;
+    }
+
     public void start() {
         System.out.println("Welcome to Palabrale!" + "\nLike Wordle but " + Colors.YELLOW + "BETTER" + Colors.RESET);
         System.out.println("Little twist. " + Colors.CYAN + "6 letter word, two boards, and both boards use the same word you input." + Colors.RESET);
