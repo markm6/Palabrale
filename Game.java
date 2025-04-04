@@ -1,4 +1,3 @@
-import java.util.Objects;
 import java.util.Scanner;
 
 public class Game {
@@ -21,7 +20,7 @@ public class Game {
     // TODO: finish promptForGuess, should include validation of the word and convert to uppercase
     private String promptForGuess() {
         String thing = "";
-        while (thing.length() != 6) {
+        while (thing.length() != 6 && !GuessHelper.getInstance().isValidWord(thing.toLowerCase())){
             thing = scanner.nextLine();
             thing= thing.replace(" ", "");
             thing = thing.toUpperCase();
@@ -64,9 +63,11 @@ public class Game {
             }
 
             System.out.println(guess);
-            board1.useGuess(guess);
-            board2.useGuess(guess);
-            guesses++;
+            if(GuessHelper.getInstance().isValidWord(guess.toLowerCase())) {
+                board1.useGuess(guess);
+                board2.useGuess(guess);
+                guesses++;
+            }
         }
         // TODO: get result
         System.out.println("Result: ");
@@ -95,6 +96,10 @@ public class Game {
         //}
     }
 
+
+
+
+
     public Board getBoard1() {
         return board1;
     }
@@ -102,5 +107,6 @@ public class Game {
     public Board getBoard2() {
         return board2;
     }
+
 
 }
