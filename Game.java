@@ -20,7 +20,7 @@ public class Game {
     // TODO: finish promptForGuess, should include validation of the word and convert to uppercase
     private String promptForGuess() {
         String thing = "";
-        while (thing.length() != 6){
+        while (thing.length() != 6 && !GuessHelper.getInstance().isValidWord(thing.toLowerCase())){
             thing = scanner.nextLine();
             thing= thing.replace(" ", "");
             thing = thing.toUpperCase();
@@ -66,7 +66,6 @@ public class Game {
                 board1.useGuess(guess);
                 board2.useGuess(guess);
                 guesses++;
-
         }
         // TODO: get result
             System.out.print("Result: ");
