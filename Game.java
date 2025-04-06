@@ -98,9 +98,6 @@ public class Game {
         System.out.println("Want to play again? (y/n)");
         String answer = scanner.nextLine();
         while (!answer.equals("n")){
-            if (answer.equals("n")){
-                break;
-            }
             Game thing = new Game();
             thing.start();
             System.out.println("Want to play again? (y/n): ");
