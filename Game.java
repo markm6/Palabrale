@@ -20,10 +20,17 @@ public class Game {
     // TODO: finish promptForGuess, should include validation of the word and convert to uppercase
     private String promptForGuess() {
         String thing = "";
-        while (thing.length() != 6 && !GuessHelper.getInstance().isValidWord(thing.toLowerCase())){
-            thing = scanner.nextLine();
-            thing= thing.replace(" ", "");
-            thing = thing.toUpperCase();
+        while (!isValidGuess(thing) && !GuessHelper.getInstance().isValidWord(thing.toLowerCase())){
+            if(thing.isEmpty()){
+                System.out.println(Colors.WHITE + "What is your guess?" + Colors.RESET);
+                thing= scanner.nextLine();
+                thing= thing.toUpperCase();
+            }else {
+                System.out.println("Incorrect input! Please enter a valid 6-letter word (only letters).");
+                System.out.println(Colors.WHITE + "What is your guess?" + Colors.RESET);
+                thing = scanner.nextLine();
+                thing = thing.toUpperCase();
+            }
         }
         return thing;
 
@@ -38,55 +45,49 @@ public class Game {
         BoardHelper.printTwoBoards(board1, board2);
     }
     private void playGame() {
-        //board1 = BoardHelper.createEmptyBoard();
-        //board2 = BoardHelper.createEmptyBoard();
-        //System.out.println(isGameOver());
-        //System.out.println( BoardHelper.isBoardFull(board1) );
-        //System.out.println( BoardHelper.boardComplete(board1));
-        //System.out.println(BoardHelper.boardComplete(board2));
+        printBoards();
         while (!isGameOver()) {
-            printBoards();
             System.out.println();
-            System.out.println(Colors.WHITE + "What is your guess?" + Colors.RESET);
+            // Get a valid guess from the user
             String guess = promptForGuess();
-            while (!done(guess)) {
-                if (done(guess)) {
-                    System.out.println(guess);
-                    board1.useGuess(guess);
-                    board2.useGuess(guess);
-                    guesses++;
-                } else {
-                    System.out.println("Incorrect input!" + "\nTry again");
-                    System.out.println(Colors.WHITE + "What is your guess?" + Colors.RESET);
-                    guess = promptForGuess();
-                }
-            }
+            // Once a valid guess is entered, process the guess
             System.out.println(guess);
-            if(GuessHelper.getInstance().isValidWord(guess.toLowerCase())) {
+            if (GuessHelper.getInstance().isValidWord(guess.toLowerCase())) {
                 board1.useGuess(guess);
                 board2.useGuess(guess);
                 guesses++;
+                printBoards();
             } else {
-                System.out.println("Incorrect input! Put in a REAL 6 letter word.");
+                System.out.println("Incorrect input! The word must be a real 6-letter word.");
             }
         }
-        // TODO: get result
-            System.out.print("Result: ");
-            if (BoardHelper.boardComplete(board1) && BoardHelper.boardComplete(board2)){
-                System.out.println("You woonn!11 🥳🥳");
-            } else {
-                System.out.println("You lost.. ;(");
-                System.out.println("The words were " + board1.getCorrectWord() + " and " + board2.getCorrectWord());
-            }
+
+        // End game result
+        System.out.print("Result: ");
+        if (BoardHelper.boardComplete(board1) && BoardHelper.boardComplete(board2)) {
+            System.out.println("You won! 🥳🥳");
+        } else {
+            System.out.println("You lost.. ;(");
+            System.out.println("The words were " + board1.getCorrectWord() + " and " + board2.getCorrectWord());
+        }
     }
 
-    public boolean done (String guess){
-        for (int i = 0; i < 5; i++){
-            if (guess.substring(i, i+1).equals(" ")){
-                return false;
+
+
+    public boolean isValidGuess(String guess) {
+        // Ensure the guess is exactly 6 characters and only alphabetic letters
+        if (guess.length() != 6) {
+
+            return false; // Guess must be 6 characters
+        }
+
+        for (int i = 0; i < guess.length(); i++) {
+            if (!Character.isAlphabetic(guess.charAt(i))) {
+                return false; // Guess must contain only alphabetic characters
             }
         }
-        return true;
+
+        return true; // If both checks pass, it's a valid guess
     }
 
 

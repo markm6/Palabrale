@@ -4,5 +4,6 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         Game g = new Game();
         g.start();
+
     }
 }

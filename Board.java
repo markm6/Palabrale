@@ -6,6 +6,7 @@ public class Board {
         this.letters = letters;
         this.correctWord = WordHelper.randomWord();
         solved=false;
+        System.out.println("Correct word is: "+correctWord);
     }
 
     public Letter[][] getLetters() {
