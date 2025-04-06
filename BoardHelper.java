@@ -29,7 +29,8 @@ public class BoardHelper {
 
             if (guessChr.equals(wordChr)) {
                 letters[i] = new CorrectLetter(guessChr);
-            } else if (correctWord.toUpperCase().contains(guessChr)) {
+                // correctWord.toUpperCase().contains(guessChr)
+            } else if (CloseLetter.isClose(i, guess, guessChr, correctWord)) {
                 letters[i] = new CloseLetter(guessChr);
             } else {
                 letters[i] = new WrongLetter(guessChr);
