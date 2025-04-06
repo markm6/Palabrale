@@ -44,15 +44,6 @@ public class Board {
            }
        }
     }
-    public void resetBoard() {
-        for (int i = 0; i < letters.length; i++) {
-            for (int j = 0; j < letters[i].length; j++) {
-                letters[i][j] = new EmptyLetter();
-            }
-        }
-        this.correctWord = WordHelper.randomWord();
-        this.solved = false;
-    }
 
     public String getCorrectWord() {
         return correctWord;
