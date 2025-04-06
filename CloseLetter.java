@@ -12,7 +12,7 @@ public class CloseLetter extends Letter {
                     ltrCount++;
                 }
             }
-            /*
+            /* testing
             System.out.println(idx + "--");
             System.out.println(guessChr);
             System.out.println(correctWord);
@@ -24,7 +24,7 @@ public class CloseLetter extends Letter {
                     guessedCount++;
                 }
             }
-            /*
+            /* testing
             System.out.println(guess);
             System.out.println(guessedCount + "--");
              */
