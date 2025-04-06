@@ -8,18 +8,26 @@ public class GuessHelper {
     private static File GUESSES_FILE;
     private static ArrayList<String> GUESSES;
     private static GuessHelper instance = new GuessHelper();
+
     private GuessHelper() {
         GUESSES = new ArrayList<>();
         GUESSES_FILE = new File("./validguesses.txt");
+
         try {
             Scanner scanner = new Scanner(GUESSES_FILE);
-            while (scanner.hasNextLine()) {
-                String word = scanner.nextLine();
+            scanner.useDelimiter("\\s+"); // Delimiter matches any whitespace (space, tab, newline)
+
+            while (scanner.hasNext()) {
+                String word = scanner.next();
                 GUESSES.add(word);
             }
+
+            scanner.close(); // Always good to close your scanner
+
         } catch (FileNotFoundException e) {
-            System.out.println(e);
+            System.out.println("Error loading word list: " + e.getMessage());
         }
+
     }
     public static GuessHelper getInstance() {
         return instance;
@@ -46,5 +54,6 @@ public class GuessHelper {
 
         return false;
     }
+
 
 }
