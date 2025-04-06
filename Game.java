@@ -108,6 +108,11 @@ public class Game {
         }
         System.out.println("Bye bye");
     }
+    private void printGuessCount() {
+        System.out.println("Guess #" + (guesses + 1));
+    }
+
+
 
     public Board getBoard1() {
         return board1;
