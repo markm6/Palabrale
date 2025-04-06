@@ -48,4 +48,15 @@ public class Board {
     public String getCorrectWord() {
         return correctWord;
     }
+    /**
+     * DEBUGGING
+     */
+    private boolean isSolvedRow(Letter[] row) {
+        for (Letter letter : row) {
+            if (!(letter instanceof CorrectLetter)) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
