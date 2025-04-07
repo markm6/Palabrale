@@ -17,7 +17,7 @@ public class Game {
         guesses = 0;
     }
 
-    // TODO: finish promptForGuess, should include validation of the word and convert to uppercase
+
     private String promptForGuess() {
         String thing = "";
         while (!isValidGuess(thing) && !GuessHelper.getInstance().isValidWord(thing.toLowerCase())){
@@ -66,6 +66,7 @@ public class Game {
         System.out.print("Result: ");
         if (BoardHelper.boardComplete(board1) && BoardHelper.boardComplete(board2)) {
             System.out.println("You won! 🥳🥳");
+            System.out.println("It took you " + guesses + " guesses!");
         } else {
             System.out.println("You lost.. ;(");
             System.out.println("The words were " + board1.getCorrectWord() + " and " + board2.getCorrectWord());
