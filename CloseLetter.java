@@ -30,10 +30,8 @@ public class CloseLetter extends Letter {
              */
 
             if (guessedCount > ltrCount) {
-                System.out.println("false");
                 return false;
             } else {
-                System.out.println("true");
                 return true;
             }
         }
