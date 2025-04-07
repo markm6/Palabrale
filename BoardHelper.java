@@ -26,7 +26,7 @@ public class BoardHelper {
         for (int i = 0; i < letters.length; i++) {
             String guessChr = guess.substring(i, i+1).toUpperCase();
             String wordChr = correctWord.substring(i, i+1).toUpperCase();
-
+                // guessChr.equals(wordChr)
             if (guessChr.equals(wordChr)) {
                 letters[i] = new CorrectLetter(guessChr);
                 // correctWord.toUpperCase().contains(guessChr)
